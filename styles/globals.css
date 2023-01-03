@@ -5,7 +5,7 @@ body {
   box-sizing: border-box;
   font-family: var(--font-family);
   color: var(--black);
-  background-color: var(--gray);
+  background-color: #f5f6f8;
 }
 
 a {
@@ -24,7 +24,7 @@ a {
   --primary-hover: #9179ef;
   --red: #de0000;
   --green: #1dc37e;
-  --grin-light: #c8f8e4;
+  --green-light: #c8f8e4;
   --gray: #e5e5e5;
   --gray-light: #ebebeb;
   --font-family: "Noto Sans KR", sans-serif;
