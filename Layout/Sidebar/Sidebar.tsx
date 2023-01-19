@@ -1,9 +1,18 @@
-import React from "react";
-import styles from "./Header.module.css";
-import { ISidebarProps } from "./Sidebar.types";
+import React from 'react';
+import { Menu } from '../../components/Menu/Menu';
+import styles from './Sidebar.module.css';
+import { ISidebarProps } from './Sidebar.types';
+import Logo from '../logo.svg';
+import classNames from 'classnames';
 
-const Sidebar = ({ ...props }: ISidebarProps): JSX.Element => {
-  return <div {...props}>Sidebar</div>;
+const Sidebar = ({ className, ...props }: ISidebarProps): JSX.Element => {
+  return (
+    <div className={classNames(className, styles.sidebar)} {...props}>
+      <Logo className={styles.logo} />
+      <div>Search</div>
+      <Menu />
+    </div>
+  );
 };
 
 export default Sidebar;

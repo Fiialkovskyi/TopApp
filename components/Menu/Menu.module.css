@@ -1,0 +1,74 @@
+.firstLevelMenu {
+  padding: 0;
+  list-style: none;
+  color: var(--gray-dark);
+}
+
+.firstLevelMenuItem {
+  margin-bottom: 20px;
+}
+
+.firstLevelLink {
+  display: inline-grid;
+  grid-template-columns: 24px auto;
+  gap: 20px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.firstLevelLinkActive,
+.firstLevelLink:hover {
+  color: var(--primary);
+}
+
+.firstLevelLinkActive svg,
+.firstLevelLink:hover svg {
+  fill: var(--primary);
+}
+
+.secondLevelMenu {
+  margin-top: 15px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  list-style: none;
+  border-left: 1px solid #dfdfdf;
+}
+
+.secondLevelMenuItem {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.secondLevelMenuItem span {
+  cursor: pointer;
+}
+
+.thirdLevelMenu {
+  padding: 0;
+  list-style: none;
+  text-transform: none;
+  cursor: auto;
+}
+
+.thirdLevelMenuItem {
+  margin-top: 10px;
+}
+
+.thirdLevelMenuItem:last-child {
+  margin-bottom: 20px;
+}
+
+.thirdLevelLink {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 500;
+}
+
+.thirdLevelLinkActive,
+.thirdLevelLink:hover {
+  color: var(--primary);
+}
