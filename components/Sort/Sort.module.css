@@ -1,0 +1,27 @@
+.sort {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 43px;
+}
+
+.sortItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: baseline;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.sortItemActive {
+  grid-template-columns: 20px 1fr;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.sortItem svg {
+  display: none;
+}
+
+.sortItemActive svg {
+  display: inline;
+}

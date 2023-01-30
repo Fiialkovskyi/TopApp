@@ -1,17 +1,18 @@
-import classNames from "classnames";
-import React, { KeyboardEvent, useEffect, useState } from "react";
-import { IRatingProps } from "./Rating.types";
-import StarIcon from "./Star.svg";
-import styles from "./Rating.module.css";
+import classNames from 'classnames';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
+import { IRatingProps } from './Rating.types';
+import StarIcon from './Star.svg';
+import styles from './Rating.module.css';
 
 const Rating = ({
   isEditable = false,
   rating,
   onRatingChange,
+  className,
   ...props
 }: IRatingProps): JSX.Element => {
   const [starsArray, setStarsArray] = useState<JSX.Element[]>(
-    new Array(5).fill(<></>)
+    new Array(5).fill(<></>),
   );
 
   const constructRating = (currentRating: number): void => {
@@ -54,7 +55,7 @@ const Rating = ({
   };
 
   const onSpaceKeyDown = (index: number, event: KeyboardEvent): void => {
-    if (event.code !== "Space" || !onRatingChange || !isEditable) {
+    if (event.code !== 'Space' || !onRatingChange || !isEditable) {
       return;
     }
 
@@ -66,7 +67,7 @@ const Rating = ({
   }, [rating]);
 
   return (
-    <div {...props}>
+    <div className={classNames(styles.rating, className)} {...props}>
       {starsArray.map((star, index) => (
         <span key={index}>{star}</span>
       ))}

@@ -1,32 +1,28 @@
-import classNames from "classnames";
-import { IButtonProps } from "./Button.types";
-import ArrowIcon from "./Arrow.svg";
-import styles from "./Button.module.css";
+import classNames from 'classnames';
+import { IButtonProps } from './Button.types';
+import ArrowIcon from './Arrow.svg';
+import styles from './Button.module.css';
 
 const Button = ({
-  appearence,
+  appearance,
   children,
   className,
-  arrow = "none",
+  arrow = 'none',
   ...args
 }: IButtonProps): JSX.Element => {
   return (
     <button
-      className={classNames(
-        styles.button,
-        {
-          [styles.primary]: appearence === "primary",
-          [styles.ghost]: appearence === "ghost",
-        },
-        className
-      )}
+      className={classNames(styles.button, className, {
+        [styles.primary]: appearance === 'primary',
+        [styles.ghost]: appearance === 'ghost',
+      })}
       {...args}
     >
       {children}
-      {arrow !== "none" && (
+      {arrow !== 'none' && (
         <ArrowIcon
           className={classNames(styles.arrow, {
-            [styles.down]: arrow === "down",
+            [styles.down]: arrow === 'down',
           })}
         />
       )}

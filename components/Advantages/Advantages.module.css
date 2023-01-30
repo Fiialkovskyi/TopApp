@@ -1,0 +1,23 @@
+.advantages {
+}
+
+.advantagesList {
+  padding: 0;
+  list-style: none;
+}
+
+.advantageItem {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 0 40px;
+  margin-top: 27px;
+  padding: none;
+}
+
+.advantageTitle {
+  margin-top: 10px;
+}
+
+.vline {
+  border-left: 1px solid var(--gray-light);
+}

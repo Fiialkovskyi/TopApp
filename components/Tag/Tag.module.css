@@ -1,5 +1,7 @@
 .tag {
   display: inline-block;
+  vertical-align: middle;
+  text-align: center;
   margin-right: 5px;
   border-radius: 20px;
 }

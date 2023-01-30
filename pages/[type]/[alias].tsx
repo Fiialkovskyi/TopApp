@@ -9,6 +9,7 @@ import {
 } from '../../interfaces/page.interfaces';
 import { IProductModel } from '../../interfaces/product.interfaces';
 import { withLayout } from '../../Layout/Layout';
+import { TopPageComponent } from '../../page-components/TopPageComponent/TopPageComponent';
 
 interface ICourseProps extends Record<string, unknown> {
   menu: IMenuItem[];
@@ -23,7 +24,13 @@ const Course = ({
   products,
   firstCategory,
 }: ICourseProps): JSX.Element => {
-  return <div>{products && products.length}</div>;
+  return (
+    <TopPageComponent
+      page={page}
+      products={products}
+      firstCategory={firstCategory}
+    />
+  );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
