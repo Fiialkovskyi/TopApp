@@ -1,7 +1,10 @@
 import { SortType } from '../../components/Sort/Sort.types';
 import { IProductModel } from '../../interfaces/product.interfaces';
 
-export type SortActions = { type: SortType.Price } | { type: SortType.Rating };
+export type SortActions =
+  | { type: SortType.Price }
+  | { type: SortType.Rating }
+  | { type: 'reset'; products: IProductModel[] };
 
 export interface ISortStore {
   sortType: SortType;
@@ -25,6 +28,12 @@ export const sortReducer = (
         products: store.products.sort(
           (a, b) => a.initialRating - b.initialRating,
         ),
+      };
+    }
+    case 'reset': {
+      return {
+        sortType: store.sortType,
+        products: action.products,
       };
     }
     default:

@@ -1,5 +1,6 @@
 .rating {
-  width: 125px;
+  width: 128px;
+  position: relative;
 }
 
 .star svg {
@@ -12,4 +13,16 @@
 
 .editable {
   cursor: pointer;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -19px;
+  left: 0;
+
+  color: var(--red);
+}
+
+.error svg {
+  stroke: var(--red);
 }

@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from 'react';
+import React, { useCallback, useEffect, useReducer } from 'react';
 import { ITopPageComponentProps } from './TopPageComponent.types';
 import styles from './TopPageComponent.module.css';
 import { Paragraph, Tag, Title } from '../../components';
@@ -23,6 +23,10 @@ export const TopPageComponent = ({
   const setSortType = useCallback((sortType: SortType) => {
     dispatch({ type: sortType });
   }, []);
+
+  useEffect(() => {
+    dispatch({ type: 'reset', products: products });
+  }, [products]);
 
   return (
     <>

@@ -6,6 +6,7 @@ import { withLayout } from '../Layout/Layout';
 import { IMenuItem } from '../interfaces/menu.interfaces';
 import { Input } from '../components/Input/Input';
 import { Textarea } from '../components/Textarea/Textarea';
+import { API } from '../helpers/api';
 
 interface IHomeProps extends Record<string, unknown> {
   menu: IMenuItem[];
@@ -41,12 +42,9 @@ function Home({ menu }: IHomeProps): JSX.Element {
 
 export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
   const firstCategory = 0;
-  const { data: menu } = await axios.post<IMenuItem[]>(
-    `${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`,
-    {
-      firstCategory,
-    },
-  );
+  const { data: menu } = await axios.post<IMenuItem[]>(API.topPage.find, {
+    firstCategory,
+  });
   return {
     props: {
       menu,

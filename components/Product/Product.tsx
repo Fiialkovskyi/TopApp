@@ -8,17 +8,26 @@ import styles from './Product.module.css';
 import { IProductProps } from './Product.types';
 import Image from 'next/image';
 import { Divider } from '../Devider/Divider';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Review } from '../Review/Review';
+import { ReviewForm } from '../ReviewForm/ReviewForm';
 
 export const Product = ({
   product,
   className,
   ...props
 }: IProductProps): JSX.Element => {
-  const [isReviewsOpened, setIsreviewsOpened] = useState(false);
+  const [isReviewsOpened, setIsReviewsOpened] = useState(false);
+  const reviewsRef = useRef<HTMLDivElement>(null);
+  const onReviewsCountClick = (): void => {
+    setIsReviewsOpened(true);
+    reviewsRef.current?.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    });
+  };
   return (
-    <>
+    <div className={classNames(className)} {...props}>
       <Card className={styles.product}>
         <div className={styles.logo}>
           <Image
@@ -54,8 +63,10 @@ export const Product = ({
         <div className={styles.priceTitle}>цена</div>
         <div className={styles.creditTitle}>кредит</div>
         <div className={styles.rateTitle}>
-          {product.reviewCount}{' '}
-          {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+          <a href="#reviews" onClick={onReviewsCountClick}>
+            {product.reviewCount}{' '}
+            {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+          </a>
         </div>
         <Divider className={styles.hr} />
         <div className={styles.description}>{product.description}</div>
@@ -89,7 +100,7 @@ export const Product = ({
             appearance="ghost"
             arrow={isReviewsOpened ? 'down' : 'right'}
             className={styles.reviewButton}
-            onClick={(): void => setIsreviewsOpened(!isReviewsOpened)}
+            onClick={(): void => setIsReviewsOpened(!isReviewsOpened)}
           >
             Читать отзывы
           </Button>
@@ -100,14 +111,16 @@ export const Product = ({
           [styles.reviewsOpened]: isReviewsOpened,
           [styles.reviewsClosed]: !isReviewsOpened,
         })}
+        ref={reviewsRef}
       >
         {product.reviews.map(item => (
-          <>
+          <div key={item._id}>
             <Review review={item} key={item._id} />
             <Divider />
-          </>
+          </div>
         ))}
+        <ReviewForm productId={product._id} />
       </Card>
-    </>
+    </div>
   );
 };

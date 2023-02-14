@@ -98,6 +98,10 @@
   line-height: 19px;
 }
 
+.rateTitle a {
+  color: var(--primary);
+}
+
 .reviewButton {
   margin-left: 20px;
 }
@@ -146,6 +150,7 @@
 .reviews {
   min-height: auto;
   background-color: #f9f8ff;
+  text-align: left;
 }
 
 .reviewsClosed {

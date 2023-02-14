@@ -1,0 +1,116 @@
+.reviewForm {
+  display: grid;
+  grid-template-columns: 218px 30px 218px 1fr;
+  grid-template-areas:
+    'nameInput . titleInput ratingWrapper'
+    'textarea textarea textarea textarea'
+    'footer footer footer footer';
+  align-items: baseline;
+  margin-top: 30px;
+}
+
+.nameInput {
+  grid-area: nameInput;
+}
+
+.titleInput {
+  grid-area: titleInput;
+}
+
+.ratingWrapper {
+  grid-area: ratingWrapper;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-self: flex-end;
+  gap: 0 20px;
+}
+
+.textarea {
+  grid-area: textarea;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+}
+
+.additionalInfo {
+  margin-top: 8px;
+  padding-left: 13px;
+}
+
+.panel {
+  position: relative;
+
+  margin-top: 20px;
+  padding: 20px;
+
+  border-radius: 5px;
+}
+
+.success {
+  background-color: var(--green-light);
+}
+
+.error {
+  background-color: var(--red-light);
+}
+
+.successTitle {
+  font-weight: bold;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.error .close path {
+  stroke: var(--red);
+}
+
+@media (max-width: 1200px) {
+  .reviewForm {
+    grid-template-columns: auto;
+    grid-template-areas:
+      'nameInput'
+      'titleInput'
+      'ratingWrapper'
+      'textarea'
+      'footer';
+  }
+
+  .ratingWrapper {
+    justify-self: flex-start;
+    margin-top: 20px;
+  }
+
+  .nameInput {
+    margin-right: 0;
+  }
+
+  .titleInput {
+    margin-top: 20px;
+    margin-right: 0;
+  }
+
+  .textarea {
+    margin-top: 20px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+
+  .additionalInfo {
+    margin-top: 20px;
+    padding-left: 0;
+  }
+}
