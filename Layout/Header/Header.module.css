@@ -1,0 +1,25 @@
+.header {
+  position: relative;
+  z-index: 10;
+  grid-template-columns: 1fr 40px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.menu {
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  overflow-y: scroll;
+  background-color: #f5f5f5;
+}
+
+.closeIcon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}

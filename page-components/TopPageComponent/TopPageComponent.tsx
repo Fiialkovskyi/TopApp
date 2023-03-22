@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useReducer } from 'react';
 import { ITopPageComponentProps } from './TopPageComponent.types';
 import styles from './TopPageComponent.module.css';
-import { Paragraph, Tag, Title } from '../../components';
+import { Tag, Title } from '../../components';
 import { VacanciesAndSalaries } from '../../components/VacanciesAndSalaries/VacanciesAndSalaries';
 import { TopLevelCategory } from '../../interfaces/page.interfaces';
 import { Advantages } from '../../components/Advantages/Advantages';
@@ -40,7 +40,7 @@ export const TopPageComponent = ({
         <Sort sortType={sortType} setSortType={setSortType} />
       </div>
       {sortedProducts.map(product => (
-        <Product key={product._id} product={product} />
+        <Product layout key={product._id} product={product} />
       ))}
       {firstCategory === TopLevelCategory.Courses && page.hh && (
         <VacanciesAndSalaries category={page.category} {...page.hh} />

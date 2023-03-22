@@ -45,4 +45,8 @@
   .body {
     padding: 0 20px;
   }
+
+  .header {
+    display: grid;
+  }
 }

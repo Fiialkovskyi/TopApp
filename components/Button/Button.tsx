@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { IButtonProps } from './Button.types';
 import ArrowIcon from './Arrow.svg';
 import styles from './Button.module.css';
+import { motion } from 'framer-motion';
 
 const Button = ({
   appearance,
@@ -11,7 +12,8 @@ const Button = ({
   ...args
 }: IButtonProps): JSX.Element => {
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.05 }}
       className={classNames(styles.button, className, {
         [styles.primary]: appearance === 'primary',
         [styles.ghost]: appearance === 'ghost',
@@ -26,7 +28,7 @@ const Button = ({
           })}
         />
       )}
-    </button>
+    </motion.button>
   );
 };
 
